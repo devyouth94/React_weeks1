@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import Layout from './components/layout/layout';
+import Layout from './components/layout/Layout';
 
 const App = () => {
   return (

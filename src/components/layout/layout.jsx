@@ -1,9 +1,15 @@
 import React, {useState} from "react";
-import Header from "../header/header";
+import TodoList from "../../pages/TodoList";
+import Form from "../form/Form";
+import Header from "../header/Header";
 
 const Layout = () => {
   return (
-    <Header/>
+    <>
+      <Header/>
+      <Form/>
+      <TodoList/>
+    </>
   )
 }
 
