@@ -1,6 +1,5 @@
 import './App.css';
 import { useState } from 'react';
-import Layout from './components/layout/Layout';
 
 const App = () => {
   const [title, setTitle] = useState("");
@@ -14,13 +13,43 @@ const App = () => {
     }
   ])
 
+  const onRemove = (id) => {
+    setTodos(todos.filter(todo => todo.id !== id))
+  }
+
+  const doneToggle = (e) => {
+    let done = todos.map(todo => {
+      if(todo.id === e) {
+        return {
+          ...todo,
+          isDone: true,
+        }
+      } else {
+        return todo;
+      }
+    });
+    setTodos(done);
+  }
+
+  const cancelToggle = (e) => {
+    let done = todos.map(todo => {
+      if(todo.id === e) {
+        return {
+          ...todo,
+          isDone: false,
+        }
+      } else {
+        return todo;
+      }
+    });
+    setTodos(done);
+  }
+  
   return (
-    <>
+    <div className='layout'>
       <div className="header">
-        <div className="header-wrap">
-          <h1>My Todo List</h1>
-          <p>React</p>
-        </div>
+        <h1>My Todo List</h1>
+        <p>React</p>
       </div>
 
       <div className="form">
@@ -46,7 +75,9 @@ const App = () => {
           <div>
             <button
               onClick={() => {
-                setTodos([...todos, { id: todos.length + 1, title: title, content: content, isDone: false}])
+                setTodos([...todos, { id: todos.length, title: title, content: content, isDone: false}]);
+                setTitle("");
+                setContent("");
               }}
             >추가하기</button>
           </div>
@@ -57,24 +88,33 @@ const App = () => {
         <div className="list-wrap">
           <h2>Working</h2>
           <div>
-            {todos.map((todo) => {
-              <div className="todo-box" id={todo.id}>
+            {todos.filter(todo => todo.isDone == false).map((todo) => (
+              <div className="todo-box" key={todo.id} onSubmit={onRemove}>
                 <h3>{todo.title}</h3>
                 <p>{todo.content}</p>
                 <div>
-                  <button>삭제하기</button>
-                  <button>완료</button>
+                  <button onClick={()=>onRemove(todo.id)}>삭제하기</button>
+                  <button onClick={()=>doneToggle(todo.id)}>완료</button>
                 </div>
               </div>
-            })}
+            ))}
           </div>
           <h2>Done</h2>
           <div>
-
+            {todos.filter(todo => todo.isDone == true).map((todo) => (
+              <div className="todo-box" key={todo.id} onSubmit={onRemove}>
+                <h3>{todo.title}</h3>
+                <p>{todo.content}</p>
+                <div>
+                  <button onClick={() => onRemove(todo.id)}>삭제하기</button>
+                  <button onClick={()=>cancelToggle(todo.id)}>취소</button>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div> 
-    </>
+    </div>
   );
 }
 
