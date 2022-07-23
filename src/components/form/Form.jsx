@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import List from "../list/List";
 import './form.css';
 
 const Form = () => {
@@ -32,7 +33,7 @@ const Form = () => {
   }
 
   const cancelToggle = (e) => {
-    let done = todos.map(todo => {
+    let cancel = todos.map(todo => {
       if(todo.id === e) {
         return {
           ...todo,
@@ -42,41 +43,42 @@ const Form = () => {
         return todo;
       }
     });
-    setTodos(done);
+    setTodos(cancel);
   }
 
-  console.log(todos);
-
   return (
-    <div className="form">
-      <div className="form-left">
-        <p>Title</p>
-        <input
-          type="text"
-          value={title}
-          onChange={(event) => {
-            setTitle(event.target.value);
-          }}
-        />
-        <p>Contents</p>
-        <input
-          type="text"
-          value={content}
-          onChange={(event) => {
-            setContent(event.target.value);
-          }}
-        />
+    <>
+      <div className="form">
+        <div className="form-left">
+          <p>Title</p>
+          <input
+            type="text"
+            value={title}
+            onChange={(event) => {
+              setTitle(event.target.value);
+            }}
+          />
+          <p>Contents</p>
+          <input
+            type="text"
+            value={content}
+            onChange={(event) => {
+              setContent(event.target.value);
+            }}
+          />
+        </div>
+        <div>
+          <button
+            onClick={() => {
+              setTodos([...todos, { id: todos.length, title: title, content: content, isDone: false }]);
+              setTitle("");
+              setContent("");
+            }}
+          >POST !</button>
+        </div>
       </div>
-      <div>
-        <button
-          onClick={() => {
-            setTodos([...todos, { id: todos.length, title: title, content: content, isDone: false }]);
-            setTitle("");
-            setContent("");
-          }}
-        >POST !</button>
-      </div>
-    </div>
+      <List todos={todos}/>
+    </>
   )
 }
 
