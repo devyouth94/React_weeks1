@@ -1,8 +1,6 @@
-import React, {useState} from "react";
+import React from "react";
 
-const WorkingTodo = ({todo}) => {
-
-  console.log(todo);
+const WorkingTodo = ({todo, onRemove, doneToggle}) => {
   return (
     <div className="todo-box" key={todo.id}>
       <h3>{todo.title}</h3>
@@ -15,7 +13,7 @@ const WorkingTodo = ({todo}) => {
   )
 }
 
-const DoneTodo = ({todo}) => {
+const DoneTodo = ({todo, onRemove, cancelToggle}) => {
   return (
     <div className="todo-box" key={todo.id}>
       <h3>{todo.title}</h3>

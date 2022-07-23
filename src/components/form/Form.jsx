@@ -77,7 +77,7 @@ const Form = () => {
           >POST !</button>
         </div>
       </div>
-      <List todos={todos}/>
+      <List todos={todos} onRemove={onRemove} doneToggle={doneToggle} cancelToggle={cancelToggle}/>
     </>
   )
 }
