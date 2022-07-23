@@ -1,8 +1,9 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+import Header from "../header/Header";
 
 const Layout = () => {
   return (
-    <div></div>
+    <Header/>
   )
 }
 

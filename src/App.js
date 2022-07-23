@@ -1,5 +1,6 @@
 import './App.css';
 import { useState } from 'react';
+import Layout from './components/layout/Layout';
 
 const App = () => {
   const [title, setTitle] = useState("");
@@ -46,11 +47,8 @@ const App = () => {
   }
   
   return (
-    <div className='layout'>
-      <div className="header">
-        <h1>My Todo List</h1>
-        <p>React</p>
-      </div>
+    <>
+      <Layout/>
 
       <div className="form">
         <div className="form-wrap">
@@ -88,8 +86,8 @@ const App = () => {
         <div className="list-wrap">
           <h2>Working</h2>
           <div>
-            {todos.filter(todo => todo.isDone == false).map((todo) => (
-              <div className="todo-box" key={todo.id} onSubmit={onRemove}>
+            {todos.filter(todo => todo.isDone === false).map((todo) => (
+              <div className="todo-box" key={todo.id}>
                 <h3>{todo.title}</h3>
                 <p>{todo.content}</p>
                 <div>
@@ -101,8 +99,8 @@ const App = () => {
           </div>
           <h2>Done</h2>
           <div>
-            {todos.filter(todo => todo.isDone == true).map((todo) => (
-              <div className="todo-box" key={todo.id} onSubmit={onRemove}>
+            {todos.filter(todo => todo.isDone === true).map((todo) => (
+              <div className="todo-box" key={todo.id}>
                 <h3>{todo.title}</h3>
                 <p>{todo.content}</p>
                 <div>
@@ -114,7 +112,7 @@ const App = () => {
           </div>
         </div>
       </div> 
-    </div>
+    </>
   );
 }
 
