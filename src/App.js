@@ -1,6 +1,7 @@
 import './App.css';
 import { useState } from 'react';
 import Layout from './components/layout/Layout';
+import TodoList from './pages/TodoList';
 
 const App = () => {
   const [title, setTitle] = useState("");
@@ -49,38 +50,8 @@ const App = () => {
   return (
     <>
       <Layout/>
-
-      <div className="form">
-        <div className="form-wrap">
-          <div className="form-wrap-left">
-            <p>제목</p>
-            <input
-              type="text" 
-              value={title} 
-              onChange={(event) => {
-                setTitle(event.target.value);
-              }}
-            />
-            <p>내용</p>
-            <input 
-              type="text" 
-              value={content}
-              onChange={(event) => {
-                setContent(event.target.value);
-              }}
-            />
-          </div>
-          <div>
-            <button
-              onClick={() => {
-                setTodos([...todos, { id: todos.length, title: title, content: content, isDone: false}]);
-                setTitle("");
-                setContent("");
-              }}
-            >추가하기</button>
-          </div>
-        </div>
-      </div>
+      <TodoList/>
+      
 
       <div className="list">
         <div className="list-wrap">

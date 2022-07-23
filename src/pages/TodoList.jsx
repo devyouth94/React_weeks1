@@ -1,8 +1,11 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+import Form from "../components/form/Form";
 
 const TodoList = () => {
   return (
-    <div></div>
+    <>
+      <Form/>
+    </>
   )
 }
 
