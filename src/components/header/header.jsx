@@ -4,8 +4,9 @@ import './header.css';
 const Header = () => {
   return (
     <div className="header">
-      <h1>My Todo List</h1>
-      <p>React</p>
+      <div>My Todo List</div>
+      <div></div>
+      <div>React</div>
     </div>
   )
 }
