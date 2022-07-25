@@ -57,6 +57,7 @@ const Form = () => {
             onChange={(event) => {
               setTitle(event.target.value);
             }}
+            placeholder="➡️"
           />
           <p>Contents</p>
           <input
@@ -65,17 +66,17 @@ const Form = () => {
             onChange={(event) => {
               setContent(event.target.value);
             }}
+            placeholder="➡️"
           />
         </div>
-        <div>
-          <button
-            onClick={() => {
-              setTodos([...todos, { id: todos.length, title: title, content: content, isDone: false }]);
-              setTitle("");
-              setContent("");
-            }}
-          >POST !</button>
-        </div>
+        <div></div>
+        <button
+          onClick={() => {
+            setTodos([...todos, { id: todos.length, title: title, content: content, isDone: false }]);
+            setTitle("");
+            setContent("");
+          }}
+        >POST !</button>
       </div>
       <List todos={todos} onRemove={onRemove} doneToggle={doneToggle} cancelToggle={cancelToggle}/>
     </>
