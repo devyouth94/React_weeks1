@@ -36,23 +36,3 @@
     transform: rotate(360deg);
   }
 }
-
-/* Layout */
-.layout {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  background-color: aqua;
-  align-items: center;
-}
-
-/* Todo-Box */
-.todo-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 200px;
-  height: 100px;
-  padding: 10px;
-  border: 1px solid #000;
-}

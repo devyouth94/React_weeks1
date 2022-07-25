@@ -8,13 +8,13 @@ const List = ({todos, onRemove, doneToggle, cancelToggle}) => {
       <h2>Working</h2>
       <div>
         {todos.filter(todo => todo.isDone === false).map((todo) => (
-          <WorkingTodo todo={todo} onRemove={onRemove} doneToggle={doneToggle}/>
+          <WorkingTodo key={todo.id} todo={todo} onRemove={onRemove} doneToggle={doneToggle}/>
         ))}
       </div>
       <h2>Done</h2>
       <div>
         {todos.filter(todo => todo.isDone === true).map((todo) => (
-          <DoneTodo todo={todo} onRemove={onRemove} cancelToggle={cancelToggle}/>
+          <DoneTodo key={todo.id} todo={todo} onRemove={onRemove} cancelToggle={cancelToggle}/>
         ))}
       </div>
     </div>

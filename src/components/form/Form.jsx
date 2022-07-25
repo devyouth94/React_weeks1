@@ -7,7 +7,7 @@ const Form = () => {
   const [content, setContent] = useState("");
   const [todos, setTodos] = useState([
     {
-      id: 0,
+      id: 1,
       title: "리액트 공부하기",
       content: "리액트 기초를 공부합시다.",
       isDone: false
@@ -72,7 +72,7 @@ const Form = () => {
         <div></div>
         <button
           onClick={() => {
-            setTodos([...todos, { id: todos.length, title: title, content: content, isDone: false }]);
+            setTodos([...todos, { id: todos.length + 1, title: title, content: content, isDone: false }]);
             setTitle("");
             setContent("");
           }}
