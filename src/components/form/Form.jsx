@@ -50,7 +50,7 @@ const Form = () => {
     <>
       <div className="form">
         <div className="form-left">
-          <p>Title</p>
+          <p>TITLE</p>
           <input
             type="text"
             value={title}
@@ -59,7 +59,7 @@ const Form = () => {
             }}
             placeholder="➡️"
           />
-          <p>Contents</p>
+          <p>CONTENTS</p>
           <input
             type="text"
             value={content}
