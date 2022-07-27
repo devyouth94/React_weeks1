@@ -77,7 +77,6 @@ const Form = () => {
             setUserId(userId + 1);
             setTitle("");
             setContent("");
-            console.log(todos);
           }}
         >POST !</button>
       </div>
