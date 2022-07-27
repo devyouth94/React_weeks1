@@ -3,11 +3,12 @@ import List from "../list/List";
 import './form.css';
 
 const Form = () => {
+  const [userId, setUserId] = useState(1);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [todos, setTodos] = useState([
     {
-      id: 1,
+      id: 0,
       title: "리액트 공부하기",
       content: "리액트 기초를 공부합시다.",
       isDone: false
@@ -72,9 +73,11 @@ const Form = () => {
         <div></div>
         <button
           onClick={() => {
-            setTodos([...todos, { id: todos.length + 1, title: title, content: content, isDone: false }]);
+            setTodos([...todos, { id: userId, title: title, content: content, isDone: false }]);
+            setUserId(userId + 1);
             setTitle("");
             setContent("");
+            console.log(todos);
           }}
         >POST !</button>
       </div>
